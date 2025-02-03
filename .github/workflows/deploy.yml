@@ -7,7 +7,7 @@ on:
 env:
   MONGODB_DB_NAME: gha-demo
   MONGODB_CLUSTER_ADDRESS: cluster0.ntrwp.mongodb.net
-  
+
 jobs:
   test:
     environment: production
@@ -29,7 +29,7 @@ jobs:
   #     - name: Output information
   #       run: echo "..."
   deploy:
-    # needs: test
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Output information
