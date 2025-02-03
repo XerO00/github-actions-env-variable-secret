@@ -6,12 +6,13 @@ on:
       - dev
 env:
   MONGODB_DB_NAME: gha-demo
-
+  MONGODB_CLUSTER_ADDRESS: cluster0.ntrwp.mongodb.net
+  
 jobs:
-  # test:
-  #   environment: testing
-  #   runs-on: ubuntu-latest
-  #   steps:
+  test:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
   #     - name: Get Code
   #       uses: actions/checkout@v3
   #     - name: Cache dependencies
@@ -19,8 +20,8 @@ jobs:
   #       with:
   #         path: ~/.npm
   #         key: npm-deps-${{ hashFiles('**/package-lock.json') }}
-  #     - name: Install dependencies
-  #       run: npm ci
+      - name: Output information
+        run: echo "${{ secrets.MONGODB_DB_NAME }}"
   #     - name: Run server
   #       run: npm start & npx wait-on http://127.0.0.1:XYZ
   #     - name: Run tests
@@ -34,4 +35,4 @@ jobs:
       - name: Output information
         run: |
           echo "${{ secrets.MONGODB_DB_NAME }}"
-          echo "${{ env.PORT }}"
+          echo "${{ env.MONGODB_DB_NAME}}"
