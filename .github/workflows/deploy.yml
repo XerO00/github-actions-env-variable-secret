@@ -26,8 +26,9 @@ jobs:
   #       run: npm start & npx wait-on http://127.0.0.1:XYZ
   #     - name: Run tests
   #       run: npm test
-  #     - name: Output information
-  #       run: echo "..."
+      - name: Output vars
+        run: echo "${{ vars.PORT }}"
+        
   deploy:
     needs: test
     runs-on: ubuntu-latest
