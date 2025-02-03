@@ -28,7 +28,7 @@ jobs:
   #     - name: Output information
   #       run: echo "..."
   deploy:
-    needs: test
+    # needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Output information
